@@ -56,7 +56,7 @@ autocmd FileType help wincmd L
 
 " Make Vim to handle long lines nicely.
 set wrap
-set textwidth=79
+set textwidth=80
 set formatoptions=qrn1
 "set colorcolumn=79
 "set relativenumber
@@ -113,9 +113,9 @@ set display+=lastline
 inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
+" if has('mouse')
+"  set mouse=a
+" endif
 
 " If linux then set ttymouse
 let s:uname = system("echo -n \"$(uname)\"")
@@ -145,7 +145,7 @@ if has("autocmd")
     au!
 
     " For all text files set 'textwidth' to 78 characters.
-    autocmd FileType text setlocal textwidth=78
+    autocmd FileType text setlocal textwidth=80
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
@@ -275,7 +275,7 @@ nnoremap N Nzzzv
 autocmd BufEnter * silent! lcd %:p:h
 
 " trim all whitespaces away
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Act like D and C
 nnoremap Y y$
@@ -307,7 +307,7 @@ endfunction
 
 " set 80 character line limit
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=-2
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
@@ -322,7 +322,7 @@ au BufNewFile,BufRead *.md setlocal spell noet ts=4 sw=4
 au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.cpp setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.hpp setlocal expandtab ts=2 sw=2
-au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2
+au BufNewFile,BufRead *.json setlocal expandtab ts=4 sw=4
 au BufNewFile,BufRead *.jade setlocal expandtab ts=2 sw=2
 
 augroup filetypedetect
@@ -388,7 +388,7 @@ set wildignore+=*.orig                           " Merge resolution files
 " ----------------------------------------- "
 
 " ==================== CtrlP ====================
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_max_height = 10		" maxiumum height of match window
 let g:ctrlp_switch_buffer = 'et'	" jump to a file if it's open already
@@ -538,7 +538,7 @@ endfunction
 
 " auto strip whitespace except for file with extention blacklisted
 let blacklist = ['markdown', 'md']
-autocmd BufWritePre * StripWhitespace
+" autocmd BufWritePre * StripWhitespace
 
 " ================= clang-format ==================
 
