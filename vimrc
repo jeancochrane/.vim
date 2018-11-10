@@ -351,10 +351,13 @@ autocmd FileType dockerfile set noexpandtab
 
 " shell/config/systemd settings
 autocmd FileType fstab,systemd set noexpandtab
-autocmd FileType gitconfig,sh,toml set noexpandtab
+autocmd FileType gitconfig,sh,toml set tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab
 
 " python indent
 autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 smarttab expandtab
+
+" Terraform settings
+autocmd BufNewFile,BufReadPost *.tf set tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab
 
 " toml settings
 au BufRead,BufNewFile MAINTAINERS set ft=toml
